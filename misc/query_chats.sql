@@ -47,7 +47,7 @@ FROM
     JOIN sms AS m
         ON ( m.thread_id = t._id )
     JOIN recipient r
-        ON ( r._id = t.recipient_ids )
+        ON ( r._id = t.thread_recipient_id )
     LEFT JOIN groups g
         ON ( g.recipient_id = r._id )
 WHERE 1
@@ -94,7 +94,7 @@ FROM
     JOIN mms AS m
         ON ( m.thread_id = t._id )
     JOIN recipient r
-        ON ( r._id = t.recipient_ids )
+        ON ( r._id = t.thread_recipient_id )
     LEFT JOIN groups g
         ON ( g.recipient_id = r._id )
     LEFT JOIN part p
